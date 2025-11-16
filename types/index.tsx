@@ -1,4 +1,5 @@
 export type ProjectType = {
+	id: string;
 	title: string;
 	subtitle: string;
 	highlight: string;
@@ -6,6 +7,7 @@ export type ProjectType = {
 };
 
 export type EquipmentType = {
+	id: string;
 	name: string;
 	pricePerDay: string;
 	status?: 'available' | 'unavailable';

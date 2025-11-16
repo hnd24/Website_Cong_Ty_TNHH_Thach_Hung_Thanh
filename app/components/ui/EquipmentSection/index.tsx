@@ -34,11 +34,13 @@ export default async function EquipmentSection() {
 							{/* Hình */}
 							<div className="relative aspect-[4/3] bg-muted">
 								<Image
+									width={512}
+									height={512}
 									src={item.image}
 									alt={item.name}
-									fill
 									className="object-cover"
-									sizes="(min-width: 1024px) 25vw, 50vw"
+									// fill
+									// sizes="(min-width: 1024px) 25vw, 50vw"
 								/>
 							</div>
 
@@ -65,7 +67,9 @@ export default async function EquipmentSection() {
 								</div>
 
 								{/* Button */}
-								<Button variant="outline">Xem chi tiết</Button>
+								<Link href={`/thiet-bi/${item.id}`} className="mt-4">
+									<Button variant="outline">Xem chi tiết</Button>
+								</Link>
 							</CardContent>
 						</Card>
 					))}
