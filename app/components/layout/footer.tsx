@@ -1,6 +1,6 @@
 'use client';
 
-import {ADDRESS, PHONE_NUMBER, SOCIAL_MEDIA} from '@/constants';
+import {ADDRESS, EMAIL_ADDRESS, PHONE_NUMBER, SOCIAL_MEDIA} from '@/constants';
 import {Mail, MapPin, Phone} from 'lucide-react';
 import Link from 'next/link';
 
@@ -43,7 +43,7 @@ export default function Footer() {
 							</div>
 						</div>
 						<div className="space-y-4">
-							<Link
+							<a
 								href={ADDRESS.url}
 								target="_blank"
 								rel="noopener noreferrer"
@@ -53,34 +53,38 @@ export default function Footer() {
 									<p className="text-xs font-semibold text-slate-400 uppercase tracking-wider">
 										Địa chỉ
 									</p>
-									<p className="text-sm text-slate-200 group-hover:text-white transition-colors">
+									<p className="text-sm text-slate-200 hover:text-blue-300 transition-colors font-medium">
 										{ADDRESS.string}
 									</p>
 								</div>
-							</Link>
+							</a>
 
 							<div className="flex items-start gap-3 group">
 								<Phone className="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5 group-hover:text-blue-300 transition-colors" />
-								<div>
+								<a href={`tel:${PHONE_NUMBER}`} className="no-underline">
 									<p className="text-xs font-semibold text-slate-400 uppercase tracking-wider">
 										Hotline / Zalo
 									</p>
 									<p className="text-sm text-slate-200 hover:text-blue-300 transition-colors font-medium">
 										{(PHONE_NUMBER ?? '').replace(/^\+?84/, '0')}
 									</p>
-								</div>
+								</a>
 							</div>
 
 							<div className="flex items-start gap-3 group">
 								<Mail className="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5 group-hover:text-blue-300 transition-colors" />
-								<div>
+								<a
+									href={`mailto:${EMAIL_ADDRESS}`}
+									className="no-underline"
+									target="_blank"
+									rel="noopener noreferrer">
 									<p className="text-xs font-semibold text-slate-400 uppercase tracking-wider">
 										Email
 									</p>
 									<p className="text-sm text-slate-200 hover:text-blue-300 transition-colors font-medium">
-										contact@company.com
+										{EMAIL_ADDRESS}
 									</p>
-								</div>
+								</a>
 							</div>
 						</div>
 					</div>
