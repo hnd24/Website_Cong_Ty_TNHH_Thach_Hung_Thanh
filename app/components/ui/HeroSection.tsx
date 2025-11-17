@@ -1,11 +1,11 @@
 // components/sections/hero.tsx
 
 import {Button} from '@/components/ui/button';
-import {NUMBER_PROJECTS_COMPLETED} from '@/constants';
+import {ACHIEVEMENTS} from '@/constants';
 
 export function HeroSection() {
 	return (
-		<section id="hero" className="relative w-full">
+		<section id="hero" className=" scroll-mt-20 relative w-full">
 			{/* Background hình + overlay */}
 			<div
 				className="flex min-h-[560px] items-center justify-center bg-cover bg-center bg-no-repeat"
@@ -22,7 +22,7 @@ export function HeroSection() {
 					{/* Subtitle */}
 					<p className="mt-4 text-lg font-light text-gray-200 md:text-xl">
 						Từ thi công nền móng đến cung cấp thiết bị – đồng hành trong hơn{' '}
-						{NUMBER_PROJECTS_COMPLETED} công trình thực tế.
+						{ACHIEVEMENTS.numberCompletedProjects.value} công trình thực tế.
 					</p>
 
 					{/* Action buttons */}

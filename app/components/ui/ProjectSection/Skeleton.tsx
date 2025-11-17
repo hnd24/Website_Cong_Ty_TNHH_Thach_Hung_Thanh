@@ -5,9 +5,7 @@ import {Skeleton} from '@/components/ui/skeleton';
 
 export default function ProjectsSectionSkeleton() {
 	return (
-		<section
-			id="completed_projects"
-			className="scroll-mt-24 bg-muted/40 py-12 dark:bg-background ">
+		<section id="completed_projects" className="scroll-mt-24 bg-muted/80 py-12 ">
 			<div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 				{/* Header */}
 				<div className="mb-12 text-center">

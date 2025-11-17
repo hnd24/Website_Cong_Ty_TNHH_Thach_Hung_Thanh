@@ -4,6 +4,7 @@ export type ProjectType = {
 	subtitle: string;
 	highlight: string;
 	image: string;
+	link: string;
 };
 
 export type EquipmentType = {

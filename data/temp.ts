@@ -7,6 +7,7 @@ export const projectData: ProjectType[] = [
 		subtitle: 'Thi công nền móng · San lấp mặt bằng · Ép cọc',
 		highlight: 'Bàn giao đúng tiến độ trong 32 ngày, đảm bảo chất lượng nền móng.',
 		image: '/images/projects/project1.png',
+		link: 'https://www.thanhhungthanh.vn/du-an/nha-xuong-hoang-phat-long-an-2024',
 	},
 	{
 		id: 'project2',
@@ -14,6 +15,7 @@ export const projectData: ProjectType[] = [
 		subtitle: 'San lấp · Đường nội bộ · Hệ thống thoát nước',
 		highlight: 'Thi công nhiều hạng mục song song, tối ưu tiến độ cho chủ đầu tư.',
 		image: '/images/projects/project2.png',
+		link: 'https://www.thanhhungthanh.vn/du-an/khu-dan-cu-phu-thanh-2023',
 	},
 	{
 		id: 'project3',
@@ -21,6 +23,7 @@ export const projectData: ProjectType[] = [
 		subtitle: 'Nền móng · Hạ tầng kỹ thuật · Thoát nước',
 		highlight: 'Đảm bảo tiêu chuẩn an toàn & vệ sinh trong quá trình thi công.',
 		image: '/images/projects/project3.png',
+		link: 'https://www.thanhhungthanh.vn/du-an/nha-may-che-bien-thuc-pham-2022',
 	},
 	{
 		id: 'project4',
@@ -28,6 +31,7 @@ export const projectData: ProjectType[] = [
 		subtitle: 'San lấp mặt bằng · Đường nội bộ · Thoát nước',
 		highlight: 'Thi công hạ tầng đồng bộ, đáp ứng yêu cầu kỹ thuật của khu công nghiệp.',
 		image: '/images/projects/project4.png',
+		link: 'https://www.thanhhungthanh.vn/du-an/ha-tang-kcn-long-hau-2021',
 	},
 ];
 

@@ -1,35 +1,11 @@
 // components/sections/why-choose-us-section.tsx
 
 import {Card, CardContent} from '@/components/ui/card';
-import {BadgeCheck, Headset, ScrollText, Users} from 'lucide-react';
-
-type Reason = {
-	title: string;
-	icon: React.ComponentType<any>;
-};
-
-const reasons: Reason[] = [
-	{
-		title: 'Thiết bị đạt chuẩn kiểm định',
-		icon: BadgeCheck,
-	},
-	{
-		title: 'Giá minh bạch – không phát sinh',
-		icon: ScrollText,
-	},
-	{
-		title: 'Giao nhận nhanh & hỗ trợ 24/7',
-		icon: Headset,
-	},
-	{
-		title: 'Kinh nghiệm thi công thực tế',
-		icon: Users,
-	},
-];
+import {REASONS} from '@/constants';
 
 export default function WhyChooseUsSection() {
 	return (
-		<section id="why_choose_us" className="bg-muted/40 dark:bg-background py-16 sm:py-24">
+		<section id="why_choose_us" className="scrolling-mt-24 bg-background/80 py-16 sm:py-24">
 			<div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 				{/* Header */}
 				<div className="mb-10 text-center">
@@ -43,7 +19,7 @@ export default function WhyChooseUsSection() {
 
 				{/* Lý do */}
 				<div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
-					{reasons.map((item, index) => {
+					{REASONS.map((item, index) => {
 						const Icon = item.icon;
 						return (
 							<Card

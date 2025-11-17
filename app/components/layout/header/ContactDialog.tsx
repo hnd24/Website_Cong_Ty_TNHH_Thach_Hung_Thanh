@@ -7,7 +7,7 @@ import {
 	DialogTitle,
 	DialogTrigger,
 } from '@/components/ui/dialog';
-import {PHONE_NUMBER} from '@/constants';
+import {ADDRESS, EMAIL_ADDRESS, PHONE_NUMBER} from '@/constants';
 import {Mail, MapPin, Phone} from 'lucide-react';
 
 export default function ContactDialog() {
@@ -43,8 +43,13 @@ export default function ContactDialog() {
 							</div>
 							<div className="flex-1 min-w-0">
 								<p className="text-sm font-semibold text-foreground">Địa chỉ</p>
-								<p className="text-sm text-muted-foreground mt-1">
-									123 Đường ABC, Quận XYZ, Thành phố HCM
+								<p className="text-sm text-muted-foreground mt-1 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+									<a
+										href={ADDRESS.url || '#'}
+										target="_blank"
+										rel="noopener noreferrer">
+										{ADDRESS.string}
+									</a>
 								</p>
 							</div>
 						</div>
@@ -77,10 +82,10 @@ export default function ContactDialog() {
 								<p className="text-sm font-semibold text-foreground">Email</p>
 								<p className="text-sm text-muted-foreground mt-1 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
 									<a
-										href="mailto:contact@thanhhungthanh.com"
+										href={`mailto:${EMAIL_ADDRESS}`}
 										target="_blank"
 										rel="noopener noreferrer">
-										contact@thanhhungthanh.com
+										{EMAIL_ADDRESS}
 									</a>
 								</p>
 							</div>

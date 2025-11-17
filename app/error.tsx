@@ -25,7 +25,7 @@ export default function ErrorPage() {
 			<div className="flex">
 				<Link href="/">
 					<Button className="bg-blue-600 hover:bg-blue-700 rounded-r-none" size="lg">
-						Trở về trang chủ
+						Về trang chủ
 					</Button>
 				</Link>
 				<Button

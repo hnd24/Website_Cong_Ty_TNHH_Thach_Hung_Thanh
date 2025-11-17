@@ -1,6 +1,6 @@
 import {Button} from '@/components/ui/button';
 import {Card, CardContent} from '@/components/ui/card';
-import {NUMBER_OF_DEVICES} from '@/constants';
+import {ACHIEVEMENTS} from '@/constants';
 import {getOutstandingEquipments} from '@/data'; // hoặc import từ data tĩnh
 import Image from 'next/image';
 import Link from 'next/link';
@@ -10,9 +10,7 @@ export default async function EquipmentSection() {
 	const displayedEquipments = (equipmentData || []).slice(0, 4);
 
 	return (
-		<section
-			id="featured_equipments"
-			className="scroll-mt-10 bg-muted/40 py-16 dark:bg-background sm:py-24">
+		<section id="featured_equipments" className="scroll-mt-8 bg-background/80 py-16 sm:py-24">
 			<div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 				{/* Header */}
 				<div className="mb-12 text-center">
@@ -20,8 +18,8 @@ export default async function EquipmentSection() {
 						Thiết Bị Cho Thuê Nổi Bật
 					</h2>
 					<p className="mt-4 text-base text-muted-foreground md:text-lg">
-						Một phần trong hơn {NUMBER_OF_DEVICES} thiết bị luôn sẵn kho, đáp ứng nhu
-						cầu thi công 24/7.
+						Một phần trong hơn {ACHIEVEMENTS.numberOfDevices.value} thiết bị luôn sẵn
+						kho, đáp ứng nhu cầu thi công 24/7.
 					</p>
 				</div>
 

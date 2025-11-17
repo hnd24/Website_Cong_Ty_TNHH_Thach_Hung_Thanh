@@ -2,7 +2,7 @@
 
 import {Button} from '@/components/ui/button';
 import {Card, CardContent} from '@/components/ui/card';
-import { ProjectType } from '@/types';
+import {ProjectType} from '@/types';
 import Image from 'next/image';
 import {useState} from 'react';
 
@@ -20,6 +20,7 @@ export default function ProjectsGrid({projects = []}: {projects: ProjectType[]})
 						<div className="relative">
 							<div className="relative h-64 w-full">
 								<Image
+									loading="lazy"
 									src={project.image}
 									alt={project.title}
 									fill
@@ -43,10 +44,12 @@ export default function ProjectsGrid({projects = []}: {projects: ProjectType[]})
 								<span className="font-semibold text-foreground">Điểm nhấn: </span>
 								{project.highlight}
 							</p>
-
-							<Button variant="outline" size="sm" className="mt-4 w-fit text-sm">
+							<a href={project.link} target="_blank" rel="noopener noreferrer">
+								<Button variant="outline" size="sm" className="mt-4 w-fit text-sm">
 								Xem chi tiết công trình
 							</Button>
+							</a>
+							
 						</CardContent>
 					</Card>
 				))}

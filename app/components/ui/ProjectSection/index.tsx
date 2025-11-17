@@ -1,6 +1,6 @@
 // components/ui/ProjectsSection.tsx  (hoặc đúng path bạn đang dùng)
 
-import {NUMBER_PROJECTS_COMPLETED} from '@/constants';
+import {ACHIEVEMENTS} from '@/constants';
 import {getProjects} from '@/data';
 import ProjectsGrid from './ProjectsGrid';
 
@@ -9,9 +9,7 @@ export default async function ProjectsSection() {
 	const projects = projectData || [];
 
 	return (
-		<section
-			id="completed_projects"
-			className="scroll-mt-10 bg-muted/40 dark:bg-background py-12 ">
+		<section id="completed_projects" className="scroll-mt-10 bg-background/80  py-12 ">
 			<div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 				{/* Header */}
 				<div className="mb-12 text-center">
@@ -19,8 +17,8 @@ export default async function ProjectsSection() {
 						Công Trình Tiêu Biểu
 					</h2>
 					<p className="mt-4 text-base text-muted-foreground md:text-lg">
-						Một phần trong hơn {NUMBER_PROJECTS_COMPLETED} công trình đã được chúng tôi
-						đồng hành cùng chủ đầu tư.
+						Một phần trong hơn {ACHIEVEMENTS.numberCompletedProjects.value} công trình
+						đã được chúng tôi đồng hành cùng chủ đầu tư.
 					</p>
 				</div>
 

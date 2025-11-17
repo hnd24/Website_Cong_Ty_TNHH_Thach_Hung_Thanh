@@ -12,8 +12,8 @@ export const metadata: Metadata = {
 
 export default function RootLayout({children}: {children: React.ReactNode}) {
 	return (
-		<html lang="vi" suppressHydrationWarning className="scroll-smooth ">
-			<body className="bg-background-light dark:bg-background-dark font-display text-dark-gray dark:text-light-gray flex flex-col min-h-screen">
+		<html lang="vi" suppressHydrationWarning className="scroll-smooth">
+			<body className="flex flex-col min-h-screen">
 				<Header />
 				<main className="mt-16 flex-1">{children}</main>
 				<Footer />

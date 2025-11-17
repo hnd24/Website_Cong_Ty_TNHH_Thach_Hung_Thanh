@@ -25,3 +25,11 @@ export const copyToClipboard = async (text: string): Promise<boolean> => {
 		return false;
 	}
 };
+
+export const delay = (ms: number) => {
+	return new Promise((resolve, reject) => {
+		setTimeout(() => {
+			resolve(true);
+		}, ms);
+	});
+};

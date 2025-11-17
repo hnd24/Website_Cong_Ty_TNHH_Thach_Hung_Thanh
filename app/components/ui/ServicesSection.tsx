@@ -3,7 +3,7 @@ import {SERVICES} from '@/constants';
 
 export default function ServicesSection() {
 	return (
-		<section id="services" className="bg-background py-16 sm:py-24">
+		<section id="services" className="scrolling-mt-16 bg-muted/80 py-16 sm:py-24">
 			<div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 				{/* Header */}
 				<div className="mb-12 text-center">

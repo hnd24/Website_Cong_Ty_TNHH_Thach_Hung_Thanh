@@ -1,22 +1,14 @@
 // components/sections/milestones-section.tsx
 
-import {
-	MILESTONES,
-	NUMBER_CLIENTS,
-	NUMBER_OF_DEVICES,
-	NUMBER_PROJECTS_COMPLETED,
-	YEARS_OF_EXPERIENCE,
-} from '@/constants';
+import {ACHIEVEMENTS, MILESTONES} from '@/constants';
 
 export default function MilestonesSection() {
-	const states = [
-		{title: 'năm hoạt động', value: YEARS_OF_EXPERIENCE},
-		{title: 'công trình đã thi công', value: NUMBER_PROJECTS_COMPLETED},
-		{title: 'thiết bị sẵn kho', value: NUMBER_OF_DEVICES},
-		{title: 'khách hàng hài lòng', value: NUMBER_CLIENTS},
-	];
+	const states = Object.values(ACHIEVEMENTS).map(achievement => ({
+		title: achievement.label,
+		value: achievement.value,
+	}));
 	return (
-		<section id="milestones" className="py-16 sm:py-24 bg-white dark:bg-navy-blue">
+		<section id="milestones" className="py-16 sm:py-24 bg-muted/80 ">
 			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 				{/* Header */}
 				<div className="text-center mb-12">
