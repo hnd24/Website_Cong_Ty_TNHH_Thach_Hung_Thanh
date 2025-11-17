@@ -1,8 +1,6 @@
 // app/not-found.tsx
 
-import {Button} from '@/components/ui/button';
 import Image from 'next/image';
-import Link from 'next/link';
 
 export default function LoadingPage() {
 	return (
@@ -16,12 +14,7 @@ export default function LoadingPage() {
 				height={300}
 				className="rounded-full bg-gray-400"
 			/>
-			<span className="text-3xl font-bold text-center">Không tìm thấy</span>
-			<Link href="/">
-				<Button className="bg-blue-600 hover:bg-blue-700" size="lg">
-					Trở về trang chủ
-				</Button>
-			</Link>
+			<span className="text-3xl font-bold text-center">Đang tải...</span>
 		</div>
 	);
 }

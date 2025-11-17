@@ -5,7 +5,7 @@ import {NUMBER_PROJECTS_COMPLETED} from '@/constants';
 
 export function HeroSection() {
 	return (
-		<section className="relative w-full">
+		<section id="hero" className="relative w-full">
 			{/* Background hình + overlay */}
 			<div
 				className="flex min-h-[560px] items-center justify-center bg-cover bg-center bg-no-repeat"
@@ -31,13 +31,13 @@ export function HeroSection() {
 							variant="primary"
 							className=" py-6 text-base font-semibold "
 							size="lg">
-							<a href="#completed_project">Công trình đã thực hiện</a>
+							<a href="#completed_projects">Công trình đã thực hiện</a>
 						</Button>
 
 						<Button
 							className=" py-6 !text-gray-900 text-base font-bold bg-gray-100 text-navy-blue hover:bg-gray-200"
 							size="lg">
-							<a href="#featured_equipment">Thiết bị nổi bật</a>
+							<a href="#featured_equipments">Thiết bị nổi bật</a>
 						</Button>
 					</div>
 				</div>

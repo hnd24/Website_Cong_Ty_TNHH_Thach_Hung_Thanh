@@ -11,8 +11,8 @@ export default async function EquipmentSection() {
 
 	return (
 		<section
-			id="featured_equipment"
-			className="scroll-mt-24 bg-muted/40 py-16 dark:bg-background sm:py-24">
+			id="featured_equipments"
+			className="scroll-mt-10 bg-muted/40 py-16 dark:bg-background sm:py-24">
 			<div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 				{/* Header */}
 				<div className="mb-12 text-center">

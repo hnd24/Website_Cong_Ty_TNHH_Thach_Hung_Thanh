@@ -16,7 +16,7 @@ export default function MilestonesSection() {
 		{title: 'khách hàng hài lòng', value: NUMBER_CLIENTS},
 	];
 	return (
-		<section className="py-16 sm:py-24 bg-white dark:bg-navy-blue">
+		<section id="milestones" className="py-16 sm:py-24 bg-white dark:bg-navy-blue">
 			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 				{/* Header */}
 				<div className="text-center mb-12">

@@ -29,7 +29,7 @@ const reasons: Reason[] = [
 
 export default function WhyChooseUsSection() {
 	return (
-		<section className="bg-muted/40 dark:bg-background py-16 sm:py-24">
+		<section id="why_choose_us" className="bg-muted/40 dark:bg-background py-16 sm:py-24">
 			<div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 				{/* Header */}
 				<div className="mb-10 text-center">

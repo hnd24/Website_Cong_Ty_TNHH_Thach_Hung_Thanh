@@ -3,7 +3,7 @@ import {Button} from '@/components/ui/button';
 import {Separator} from '@/components/ui/separator';
 import {Sheet, SheetContent, SheetTitle, SheetTrigger} from '@/components/ui/sheet';
 import {EMAIL_ADDRESS, navItems, PHONE_NUMBER} from '@/constants';
-import {Menu, X} from 'lucide-react';
+import {ArrowRight, Menu} from 'lucide-react';
 import Link from 'next/link';
 import {useState} from 'react';
 
@@ -18,13 +18,14 @@ export default function MenuMobile() {
 						variant="ghost"
 						size="icon"
 						className="md:hidden text-foreground hover:bg-accent transition-all duration-200">
-						{open ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+						<Menu className="w-6 h-6" />
+						<span className=" sr-only">Menu </span>
 					</Button>
 				</SheetTrigger>
-				<SheetTitle />
 				<SheetContent
 					side="right"
 					className="w-72 p- from-background to-muted/5 border-l border-border">
+					<SheetTitle />
 					<nav className="flex flex-col gap-1 p-4">
 						{navItems.map((item, index) => (
 							<Link
@@ -37,6 +38,7 @@ export default function MenuMobile() {
 								<span className="relative z-10 group-hover:translate-x-1 transition-transform duration-300">
 									{item.label}
 								</span>
+								<ArrowRight className="ml-auto w-4 h-4 text-muted-foreground transition-transform duration-300 group-hover:translate-x-1" />
 
 								<div className="absolute inset-y-0 left-0 w-1 bg-primary translate-y-full group-hover:translate-y-0 transition-transform duration-300 rounded-r" />
 							</Link>
