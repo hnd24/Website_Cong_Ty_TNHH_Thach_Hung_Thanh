@@ -2,6 +2,7 @@ import {Button} from '@/components/ui/button';
 import {Card, CardContent} from '@/components/ui/card';
 import {ACHIEVEMENTS} from '@/constants';
 import {getOutstandingEquipments} from '@/data'; // hoặc import từ data tĩnh
+import {formatMoney} from '@/lib/utils';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -51,7 +52,8 @@ export default async function EquipmentSection() {
 								{/* Giá + badge */}
 								<div className="flex flex-col">
 									<p className="text-lg font-bold text-blue-400 ">
-										{item.pricePerDay} /ngày
+										{formatMoney(item.pricePerDay, {multiplyByThousand: true})}{' '}
+										/ngày
 									</p>
 									{item.status === 'available' ? (
 										<span className="w-fit px-2  py-0.5 rounded-xl bg-[#dcfce7] text-[#166534] font-semibold text-center text-xs ">

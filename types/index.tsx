@@ -10,7 +10,13 @@ export type ProjectType = {
 export type EquipmentType = {
 	id: string;
 	name: string;
-	pricePerDay: string;
+	pricePerDay: number;
 	status?: 'available' | 'unavailable';
 	image: string;
+};
+
+export type PaginationMetaType = {
+	page: number;
+	limit?: number;
+	total: number;
 };

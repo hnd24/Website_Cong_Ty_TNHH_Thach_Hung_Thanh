@@ -33,3 +33,22 @@ export const delay = (ms: number) => {
 		}, ms);
 	});
 };
+
+export function formatMoney(
+	value: number,
+	options?: {
+		locale?: string;
+		currency?: string;
+		multiplyByThousand?: boolean;
+	},
+): string {
+	const {locale = 'vi-VN', currency = 'VND', multiplyByThousand = false} = options || {};
+
+	const money = multiplyByThousand ? value * 1000 : value;
+
+	return new Intl.NumberFormat(locale, {
+		style: 'currency',
+		currency,
+		maximumFractionDigits: 0, // bỏ số lẻ, vì VNĐ thường không có
+	}).format(money);
+}

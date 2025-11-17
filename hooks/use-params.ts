@@ -1,5 +1,11 @@
 import {TrademarkEquipment, TypeEquipment} from '@/constants/enum';
-import {parseAsInteger, parseAsStringEnum, useQueryStates} from 'nuqs';
+import {
+	parseAsBoolean,
+	parseAsInteger,
+	parseAsStringEnum,
+	useQueryState,
+	useQueryStates,
+} from 'nuqs';
 
 export const useParams = () => {
 	const [params, setParams] = useQueryStates({
@@ -15,5 +21,13 @@ export const useParams = () => {
 	return {
 		params,
 		setParams,
+	};
+};
+
+export const useIsLoad = () => {
+	const [isLoad, setIsLoad] = useQueryState('isLoad', parseAsBoolean.withDefault(false));
+	return {
+		isLoad,
+		setIsLoad,
 	};
 };

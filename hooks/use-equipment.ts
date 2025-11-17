@@ -1,11 +1,9 @@
-import {EquipmentType} from '@/types';
+import {EquipmentType, PaginationMetaType} from '@/types';
 import {create} from 'zustand';
 
 export type EquipmentTypeData = {
 	equipments: EquipmentType[];
-	total: number;
-	page: number;
-};
+} & PaginationMetaType;
 
 export type CounterActions = {
 	updateEquipmentsData: (data: EquipmentTypeData) => void;
