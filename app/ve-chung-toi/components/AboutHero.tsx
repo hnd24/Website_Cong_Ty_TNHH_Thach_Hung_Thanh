@@ -5,16 +5,23 @@ export function AboutHero() {
 	return (
 		<section
 			id="about-hero"
+			aria-labelledby="about-hero-heading"
+			itemScope
+			itemType="https://schema.org/Organization"
 			className="bg-background/80 scroll-mt-20 flex flex-col items-center px-4 py-16  md:py-20">
 			<div className="w-full max-w-5xl">
 				<div className="flex flex-col items-center gap-4 text-center">
 					<p className="text-primary-blue text-lg font-bold leading-tight">
 						Về chúng tôi
 					</p>
-					<h1 className="text-foreground text-4xl md:text-5xl font-black leading-tight tracking-tight text-balance">
+					<h1
+						id="about-hero-heading"
+						className="text-foreground text-4xl md:text-5xl font-black leading-tight tracking-tight text-balance">
 						Đối tác tin cậy cho mọi công trình
 					</h1>
-					<p className="max-w-3xl text-foreground/70 text-lg font-normal leading-relaxed">
+					<p
+						itemProp="description"
+						className="max-w-3xl text-foreground/70 text-lg font-normal leading-relaxed">
 						CÔNG TY TNHH THẠNH HƯNG THÀNH cam kết cung cấp giải pháp toàn diện về thi
 						công xây dựng và cho thuê thiết bị xây dựng với chất lượng vượt trội, đội
 						ngũ chuyên nghiệp, và tiến độ đảm bảo.

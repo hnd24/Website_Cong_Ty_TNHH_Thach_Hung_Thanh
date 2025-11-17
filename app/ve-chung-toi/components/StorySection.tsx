@@ -1,19 +1,35 @@
 import {Badge} from '@/components/ui/badge';
 import {Card} from '@/components/ui/card';
+import {ACHIEVEMENTS} from '@/constants';
 
-export function StorySection() {
+export default function StorySection() {
+	const stats = Object.entries(ACHIEVEMENTS).filter(([key]) => key !== 'numberClients');
+	const visibleStats = stats.map(([key, value]) => {
+		return {
+			label: value.label,
+			value: value.value,
+		};
+	});
 	return (
-		<section id="story-section" className="scroll-mt-12 py-16 md:py-20 bg-muted/80 ">
+		<section
+			id="story-section"
+			aria-labelledby="story-section-heading"
+			itemScope
+			className="scroll-mt-12 py-16 md:py-20 bg-muted/80 ">
 			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 				<div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 					<div>
 						<Badge variant="default" className="mb-4">
 							Câu chuyện của chúng tôi
 						</Badge>
-						<h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl text-balance">
+						<h2
+							itemProp="name"
+							className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl text-balance">
 							Giới thiệu về công ty cho thuê thiết bị xây dựng tại Long An
 						</h2>
-						<div className="mt-6 space-y-4 text-foreground/70 text-base leading-relaxed">
+						<div
+							itemProp="description"
+							className="mt-6 space-y-4 text-foreground/70 text-base leading-relaxed">
 							<p>
 								Tọa lạc tại 119–121 Đường 278, P7, Tân An, Long An, CÔNG TY TNHH
 								THẠNH HƯNG THÀNH là đối tác tin cậy chuyên cung cấp dịch vụ thi công
@@ -46,28 +62,19 @@ export function StorySection() {
 							height={400}
 						/>
 						<Card className="absolute bottom-4 right-4 bg-background/95 dark:bg-foreground/10 backdrop-blur-md p-4 shadow-xl border border-border/50">
-							<div className="flex items-center gap-4">
-								<div className="text-center">
-									<p className="text-2xl font-bold text-primary-blue">10+</p>
-									<p className="text-xs text-foreground/70 font-medium">
-										năm kinh nghiệm
-									</p>
-								</div>
-								<div className="h-10 w-px bg-border"></div>
-								<div className="text-center">
-									<p className="text-2xl font-bold text-primary-blue">300+</p>
-									<p className="text-xs text-foreground/70 font-medium">
-										công trình hoàn thành
-									</p>
-								</div>
-								<div className="h-10 w-px bg-border"></div>
-								<div className="text-center">
-									<p className="text-2xl font-bold text-primary-blue">200+</p>
-									<p className="text-xs text-foreground/70 font-medium">
-										thiết bị hiện đại
-									</p>
-								</div>
-							</div>
+							<dl className="flex items-center gap-4">
+								{visibleStats.map((stat, index) => (
+									<div key={index} className="text-center">
+										<dd className="text-2xl font-bold text-primary-blue">
+											{stat.value}+
+										</dd>
+										<dt className="text-xs text-foreground/70 font-medium">
+											{stat.label}
+										</dt>
+									</div>
+								))}
+								{/* <div className="h-10 w-px bg-border"></div> */}
+							</dl>
 						</Card>
 					</div>
 				</div>

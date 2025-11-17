@@ -34,7 +34,7 @@ export default async function EquipmentSection() {
 						itemProp="description">
 						Một phần trong hơn{' '}
 						<strong className="font-semibold">
-							{ACHIEVEMENTS.numberOfDevices.value} thiết bị
+							{ACHIEVEMENTS.numberOfEquipments.value} thiết bị
 						</strong>{' '}
 						sẵn kho phục vụ thi công 24/7, đáp ứng các nhu cầu xây dựng, nền móng, công
 						trình dân dụng – công nghiệp tại Long An và khu vực lân cận.

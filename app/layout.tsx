@@ -17,7 +17,9 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
 			<NuqsAdapter>
 				<body className="flex flex-col min-h-screen">
 					<Header />
-					<main className="mt-16 flex-1">{children}</main>
+					<main id="main-content" role="main" className="mt-16 flex-1">
+						{children}
+					</main>
 					<Footer />
 				</body>
 			</NuqsAdapter>

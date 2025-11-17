@@ -25,7 +25,10 @@ export function WhyChooseUsSection() {
 				<ul className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
 					{REASONS.map(({title, description, icon: Icon}) => (
 						<li key={title}>
-							<Card className="h-full border-none bg-white shadow-md dark:bg-background-dark gap-0">
+							<Card
+								itemScope
+								itemType="https://schema.org/Service"
+								className="h-full border-none bg-white shadow-md dark:bg-background-dark gap-0">
 								<CardHeader>
 									<CardTitle className=" flex items-center gap-4 ">
 										<Icon
@@ -34,12 +37,14 @@ export function WhyChooseUsSection() {
 											aria-hidden="true"
 										/>
 
-										<span className="text-base font-bold text-[#111418] dark:text-white">
+										<span
+											itemProp="name"
+											className="text-base font-bold text-[#111418] dark:text-white">
 											{title}
 										</span>
 									</CardTitle>
 								</CardHeader>
-								<CardContent className="pt-0">
+								<CardContent itemProp="description" className="pt-0">
 									<p className="text-sm text-[#60758a] dark:text-gray-400">
 										{description}
 									</p>

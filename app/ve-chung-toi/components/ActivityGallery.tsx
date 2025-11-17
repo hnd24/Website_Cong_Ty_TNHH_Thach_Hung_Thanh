@@ -8,6 +8,8 @@ export function ActivityGallerySection() {
 		<section
 			id="activity-gallery"
 			aria-labelledby="activity-gallery-heading"
+			itemScope
+			itemType="https://schema.org/ImageGallery"
 			className="w-full flex justify-center py-24 bg-white dark:bg-background-dark">
 			<div className="w-full max-w-6xl px-4">
 				{/* Heading */}
@@ -29,16 +31,22 @@ export function ActivityGallerySection() {
 					<div className="grid auto-rows-[180px] gap-4 md:auto-rows-[220px] md:grid-cols-4 lg:auto-rows-[260px] lg:grid-cols-6">
 						{GALLERY_ITEMS.map(item => (
 							<figure
+								itemProp="associatedMedia"
+								itemScope
+								itemType="https://schema.org/ImageObject"
 								key={item.alt}
 								className={`group relative overflow-hidden rounded-2xl ${item.className}`}>
 								<Image
 									fill
+									itemProp="contentUrl"
 									src={item.src}
 									alt={item.alt}
 									loading="lazy"
 									className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
 								/>
-								<figcaption className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/60 to-transparent px-3 pb-3 pt-10 text-xs text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+								<figcaption
+									itemProp="caption"
+									className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/60 to-transparent px-3 pb-3 pt-10 text-xs text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
 									{item.caption}
 								</figcaption>
 							</figure>

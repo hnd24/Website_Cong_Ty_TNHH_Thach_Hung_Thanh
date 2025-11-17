@@ -4,7 +4,7 @@ import {AchievementsSection} from './components/Achievements';
 import {ActivityGallerySection} from './components/ActivityGallery';
 import CircularNavAboutUs from './components/CircularNavAboutUs';
 import HistoryTimeline from './components/HistoryTimeline';
-import {StorySection} from './components/StorySection';
+import StorySection from './components/StorySection';
 import {TeamCultureSection} from './components/TeamCultureSection';
 import {WhyChooseUsSection} from './components/WhyChooseUs';
 
@@ -28,7 +28,10 @@ export const metadata: Metadata = {
 export default function IntroPage() {
 	return (
 		<>
-			<h1 className="sr-only">Về chúng tôi | CÔNG TY TNHH THẠNH HƯNG THÀNH</h1>
+			<h1 className="sr-only">
+				CÔNG TY TNHH THẠNH HƯNG THÀNH – Thi công &amp; cho thuê thiết bị xây dựng tại Long
+				An
+			</h1>
 			<AboutHero />
 			<StorySection />
 			<HistoryTimeline />
