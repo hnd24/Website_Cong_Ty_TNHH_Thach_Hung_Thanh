@@ -14,6 +14,9 @@ import WhyChooseUsSection from './components/ui/WhyChooseUsSection';
 export default async function Home() {
 	return (
 		<>
+			<h1 className="sr-only">
+				CÔNG TY TNHH THẠNH HƯNG THÀNH – Thi công & cho thuê thiết bị xây dựng
+			</h1>
 			<HeroSection />
 			<StatsBarSection />
 			<Suspense fallback={<ProjectsSectionSkeleton />}>

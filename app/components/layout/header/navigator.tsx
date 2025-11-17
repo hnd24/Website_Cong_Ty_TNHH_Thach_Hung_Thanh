@@ -8,7 +8,6 @@ import MenuMobile from './MenuMobile';
 
 export function Navigator() {
 	const pathname = usePathname();
-	console.log('🚀 ~ Navigator ~ pathname:', pathname);
 
 	return (
 		<>

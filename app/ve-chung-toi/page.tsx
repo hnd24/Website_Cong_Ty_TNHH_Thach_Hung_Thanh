@@ -28,6 +28,7 @@ export const metadata: Metadata = {
 export default function IntroPage() {
 	return (
 		<>
+			<h1 className="sr-only">Về chúng tôi | CÔNG TY TNHH THẠNH HƯNG THÀNH</h1>
 			<AboutHero />
 			<StorySection />
 			<HistoryTimeline />

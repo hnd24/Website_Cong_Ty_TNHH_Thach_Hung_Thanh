@@ -49,13 +49,13 @@ type AchievementType = {
 };
 
 export const ACHIEVEMENTS: AchievementType = {
-	numberCompletedProjects: {
+	yearOfExperience: {
 		value: '10',
 		label: 'Năm kinh nghiệm',
 		ariaLabel:
 			'Hơn 10 năm kinh nghiệm thi công và cho thuê thiết bị xây dựng tại Long An và khu vực lân cận',
 	},
-	yearOfExperience: {
+	numberCompletedProjects: {
 		value: '300',
 		label: 'Dự án hoàn thành',
 		ariaLabel: 'Hơn 300 dự án xây dựng và hạ tầng đã được hoàn thành đúng tiến độ',
@@ -84,7 +84,7 @@ export const SERVICES: Service[] = [
 		icon: House,
 		title: 'Thi công công trình',
 		description: 'Thi công nền móng, dân dụng, công nghiệp, hạ tầng.',
-		highlights: ['Đội thi công chuyên nghiệp", "Cam kết tiến độ" ,"Quy trình giám sát chuẩn.'],
+		highlights: ['Đội thi công chuyên nghiệp', 'Cam kết tiến độ', 'Quy trình giám sát chuẩn'],
 	},
 	{
 		icon: Settings,

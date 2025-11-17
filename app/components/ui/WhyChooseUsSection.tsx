@@ -5,41 +5,58 @@ import {REASONS} from '@/constants';
 
 export default function WhyChooseUsSection() {
 	return (
-		<section id="why_choose_us" className="scrolling-mt-24 bg-background/80 py-16 sm:py-24">
+		<section
+			id="why_choose_us"
+			aria-labelledby="why-choose-us-heading"
+			className="scroll-mt-24 bg-background/80 py-16 sm:py-24">
 			<div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 				{/* Header */}
 				<div className="mb-10 text-center">
-					<h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl capitalize">
+					<h2
+						id="why-choose-us-heading"
+						className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
 						Vì sao chọn chúng tôi?
 					</h2>
-					<p className="mt-4 text-gray-700 text-lg ">
-						Cam kết mang lại giá trị và sự an tâm cho mọi công trình.
+					<p className="mt-4 text-lg text-gray-700">
+						Đối tác thi công xây dựng và cho thuê thiết bị tại Long An, cam kết mang lại
+						tiến độ, an toàn và chất lượng cho mọi công trình.
 					</p>
 				</div>
 
 				{/* Lý do */}
-				<div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
-					{REASONS.map((item, index) => {
+				<ul className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
+					{REASONS.map(item => {
 						const Icon = item.icon;
-						return (
-							<Card
-								key={index}
-								className="h-full border border-border bg-white shadow-sm dark:bg-navy-blue dark:border-gray-700">
-								<CardContent className="flex h-full flex-col items-center text-center gap-3">
-									{/* Icon */}
-									<div className="h-14 w-14 flex items-center justify-center rounded-full bg-gray-50">
-										<Icon className="size-8 text-primary-blue" />
-									</div>
 
-									{/* Title */}
-									<h3 className="text-base font-semibold text-foreground">
-										{item.title}
-									</h3>
-								</CardContent>
-							</Card>
+						return (
+							<li key={item.title}>
+								<Card className="h-full border border-border bg-white shadow-sm dark:border-gray-700 dark:bg-navy-blue">
+									<CardContent className="flex h-full flex-col items-center gap-3 text-center">
+										{/* Icon (decorative) */}
+										<div className="flex h-14 w-14 items-center justify-center rounded-full bg-gray-50">
+											<Icon
+												className="size-8 text-primary-blue"
+												aria-hidden="true"
+											/>
+										</div>
+
+										{/* Title */}
+										<h3 className="text-base font-semibold text-foreground">
+											{item.title}
+										</h3>
+
+										{/* Optional description nếu REASONS có field description */}
+										{item.description && (
+											<p className="text-sm text-gray-600 dark:text-gray-300">
+												{item.description}
+											</p>
+										)}
+									</CardContent>
+								</Card>
+							</li>
 						);
 					})}
-				</div>
+				</ul>
 			</div>
 		</section>
 	);

@@ -1,4 +1,4 @@
-import {TrademarkEquipment, TypeEquipment} from '@/constants/enum';
+import {StatusEquipment, TrademarkEquipment, TypeEquipment} from '@/constants/enum';
 import {
 	parseAsBoolean,
 	parseAsInteger,
@@ -9,13 +9,16 @@ import {
 
 export const useParams = () => {
 	const [params, setParams] = useQueryStates({
-		TypeEquipment: parseAsStringEnum<TypeEquipment>(Object.values(TypeEquipment)).withDefault(
+		typeEquipment: parseAsStringEnum<TypeEquipment>(Object.values(TypeEquipment)).withDefault(
 			TypeEquipment.All,
 		),
-		TrademarkEquipment: parseAsStringEnum<TrademarkEquipment>(
+		statusEquipment: parseAsStringEnum<StatusEquipment>(
+			Object.values(StatusEquipment),
+		).withDefault(StatusEquipment.All),
+		trademarkEquipment: parseAsStringEnum<TrademarkEquipment>(
 			Object.values(TrademarkEquipment),
 		).withDefault(TrademarkEquipment.All),
-		Rent: parseAsInteger.withDefault(100),
+		rent: parseAsInteger.withDefault(100),
 	});
 
 	return {

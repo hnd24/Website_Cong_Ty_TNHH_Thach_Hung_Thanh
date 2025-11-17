@@ -8,6 +8,13 @@ export enum TypeEquipment {
 	ConcreteMixer = 'Xe trộn bê tông',
 }
 
+export enum StatusEquipment {
+	All = 'Tất cả',
+	Available = 'Còn hàng',
+	Rented = 'Đã cho thuê',
+	Maintenance = 'Bảo trì',
+}
+
 export enum TrademarkEquipment {
 	All = 'Tất cả',
 	Komatsu = 'Komatsu',
