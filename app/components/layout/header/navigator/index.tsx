@@ -4,7 +4,7 @@ import {navItems} from '@/constants';
 import {cn} from '@/lib/utils';
 import Link from 'next/link';
 import {usePathname} from 'next/navigation';
-import MenuMobile from './MenuMobile';
+import MenuMobile from '../MenuMobile';
 
 export function Navigator() {
 	const pathname = usePathname();

@@ -9,7 +9,10 @@ import {
 	PaginationNext,
 	PaginationPrevious,
 } from '@/components/ui/pagination';
+import {BrandEquipmentEnum, StatusEquipmentEnum, TypeEquipmentEnum} from '@/constants/enum';
+import {getEquipments} from '@/data/equipment';
 import {useIsLoad, useSearchParams} from '@/hooks/use-params';
+import {useEquipmentListStore} from '@/stores/equipment-store';
 
 type EquipmentPaginationProps = {
 	totalPages: number;
@@ -21,7 +24,36 @@ export function EquipmentPagination({totalPages}: EquipmentPaginationProps) {
 		setSearchParams,
 	} = useSearchParams();
 	const {setIsLoad} = useIsLoad();
-	// if (totalPages <= 1) return null;
+	const storeDataFn = useEquipmentListStore(state => state.updateEquipmentsData);
+	const {searchParams} = useSearchParams();
+	const param = {
+		...(searchParams.typeEquipment !== TypeEquipmentEnum.All && {
+			typeEquipment: searchParams.typeEquipment,
+		}),
+		...(searchParams.brandEquipment !== BrandEquipmentEnum.All && {
+			brandEquipment: searchParams.brandEquipment,
+		}),
+		...(searchParams.statusEquipment !== StatusEquipmentEnum.All && {
+			statusEquipment: searchParams.statusEquipment,
+		}),
+		priceRange: searchParams.priceRange,
+	};
+
+	const handleClick = async function handleData(page: number) {
+		setIsLoad(true);
+		setSearchParams({page});
+		const data = await getEquipments({
+			...param,
+			meta: {
+				page,
+				limit: 6,
+			},
+		});
+		storeDataFn(data);
+		setIsLoad(false);
+	};
+
+	if (totalPages <= 1) return null;
 
 	return (
 		<Pagination className=" mt-10 mb-10 justify-center">
@@ -29,12 +61,9 @@ export function EquipmentPagination({totalPages}: EquipmentPaginationProps) {
 				{/* Previous */}
 				<PaginationItem>
 					<PaginationPrevious
-						onClick={() => {
+						onClick={async () => {
 							if (currentPage > 1) {
-								setSearchParams({
-									page: currentPage - 1,
-								});
-								setIsLoad(true);
+								await handleClick(currentPage - 1);
 							}
 						}}
 						aria-disabled={currentPage === 1}
@@ -51,11 +80,8 @@ export function EquipmentPagination({totalPages}: EquipmentPaginationProps) {
 						return (
 							<PaginationItem key={page}>
 								<PaginationLink
-									onClick={() => {
-										setSearchParams({
-											page: page,
-										});
-										setIsLoad(true);
+									onClick={async () => {
+										await handleClick(page);
 									}}
 									isActive={page === currentPage}>
 									{page}
@@ -79,12 +105,9 @@ export function EquipmentPagination({totalPages}: EquipmentPaginationProps) {
 				{/* Next */}
 				<PaginationItem>
 					<PaginationNext
-						onClick={() => {
+						onClick={async () => {
 							if (currentPage < totalPages) {
-								setSearchParams({
-									page: currentPage + 1,
-								});
-								setIsLoad(true);
+								await handleClick(currentPage + 1);
 							}
 						}}
 						aria-disabled={currentPage === totalPages}

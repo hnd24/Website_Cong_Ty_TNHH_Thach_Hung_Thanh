@@ -1,4 +1,3 @@
-// src/components/equipment/equipment-filters.tsx
 'use client';
 
 import {Input} from '@/components/ui/input';
@@ -19,92 +18,99 @@ export function EquipmentFilters() {
 
 	const typeEquipment = Object.entries(TypeEquipmentEnum);
 	const brandEquipment = Object.entries(BrandEquipmentEnum);
-	return (
-		<aside className="w-full lg:w-1/4 xl:w-1/5">
-			<div className="sticky top-28 space-y-6 rounded-xl border bg-card p-5">
-				<h3 className="text-lg font-bold text-navy-blue dark:text-white">Lọc theo</h3>
 
-				{/* Loại thiết bị */}
+	return (
+		<aside className="w-full lg:w-1/4 xl:w-1/5" aria-label="Bộ lọc sản phẩm">
+			<div className="sticky top-28 space-y-6 rounded-xl border bg-card p-5 shadow-sm">
+				<h3 className="text-lg font-bold text-navy-blue dark:text-white">
+					Bộ lọc thiết bị
+				</h3>
+
 				<div className="space-y-2">
 					<Label htmlFor="equipment-type">Loại thiết bị</Label>
-					{
-						<Select
-							onValueChange={value => {
-								setSearchParams({typeEquipment: value as TypeEquipmentEnum});
-							}}
-							defaultValue={searchParams.typeEquipment}>
-							<SelectTrigger className="w-full" id="equipment-type">
-								<SelectValue placeholder="Tất cả" />
-							</SelectTrigger>
-							<SelectContent>
-								{typeEquipment.map(([key, value]) => (
-									<SelectItem key={key} value={value}>
-										{value}
-									</SelectItem>
-								))}
-							</SelectContent>
-						</Select>
-					}
+					<Select
+						onValueChange={value => {
+							setSearchParams({typeEquipment: value as TypeEquipmentEnum});
+						}}
+						defaultValue={searchParams.typeEquipment}>
+						<SelectTrigger
+							className="w-full"
+							id="equipment-type"
+							aria-label="Chọn loại thiết bị">
+							<SelectValue placeholder="Tất cả" />
+						</SelectTrigger>
+						<SelectContent>
+							{typeEquipment.map(([key, value]) => (
+								<SelectItem key={key} value={value}>
+									{value}
+								</SelectItem>
+							))}
+						</SelectContent>
+					</Select>
 				</div>
 
-				{/* Giá thuê */}
-				<div className="space-y-2">
-					<Label>Khoảng giá </Label>
+				<fieldset className="space-y-2">
+					<legend className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
+						Khoảng giá (VNĐ)
+					</legend>
 					<div className="flex items-center gap-2">
 						<div className="flex-1">
 							<Input
+								id="price-min"
+								min={0}
 								inputMode="numeric"
 								placeholder="TỪ"
-								value={searchParams.priceRange[0]}
-								onChange={value => {
-									setSearchParams({
-										priceRange: [
-											Number(value.target.value),
-											searchParams.priceRange[1],
-										],
-									});
+								aria-label="Giá thấp nhất"
+								value={
+									searchParams.priceRange[0] === 0
+										? ''
+										: searchParams.priceRange[0]
+								}
+								onChange={e => {
+									const value = e.target.value;
+									if (/^\d*$/.test(value)) {
+										setSearchParams({
+											priceRange: [
+												value === '' ? 0 : Number(value),
+												searchParams.priceRange[1],
+											],
+										});
+									}
 								}}
 								className="text-right"
 							/>
 						</div>
-						<span className="text-muted-foreground">–</span>
+						<span className="text-muted-foreground" aria-hidden="true">
+							–
+						</span>
 						<div className="flex-1">
 							<Input
+								id="price-max"
+								min={0}
 								inputMode="numeric"
 								placeholder="ĐẾN"
-								value={searchParams.priceRange[1]}
-								onChange={value => {
-									setSearchParams({
-										priceRange: [
-											searchParams.priceRange[0],
-											Number(value.target.value),
-										],
-									});
+								aria-label="Giá cao nhất"
+								value={
+									searchParams.priceRange[1] === 0
+										? ''
+										: searchParams.priceRange[1]
+								}
+								onChange={e => {
+									const value = e.target.value;
+									if (/^\d*$/.test(value)) {
+										setSearchParams({
+											priceRange: [
+												searchParams.priceRange[0],
+												value === '' ? 0 : Number(value),
+											],
+										});
+									}
 								}}
 								className="text-right"
 							/>
 						</div>
 					</div>
-				</div>
-
-				{/* Trạng thái */}
-				{/* <div className="space-y-2">
-					<Label>Trạng thái</Label>
-					<div className="space-y-2">
-						<div className="flex items-center gap-2">
-							<Checkbox id="status-in-stock" />
-							<Label htmlFor="status-in-stock" className="font-normal">
-								Còn hàng
-							</Label>
-						</div>
-						<div className="flex items-center gap-2">
-							<Checkbox id="status-rented" />
-							<Label htmlFor="status-rented" className="font-normal">
-								Đang thuê
-							</Label>
-						</div>
-					</div>
-				</div> */}
+				</fieldset>
 
 				{/* Thương hiệu */}
 				<div className="space-y-2">
@@ -114,7 +120,10 @@ export function EquipmentFilters() {
 							setSearchParams({brandEquipment: value as BrandEquipmentEnum});
 						}}
 						defaultValue={searchParams.brandEquipment}>
-						<SelectTrigger className="w-full" id="brand-type">
+						<SelectTrigger
+							className="w-full"
+							id="brand-type"
+							aria-label="Chọn thương hiệu">
 							<SelectValue placeholder="Tất cả" />
 						</SelectTrigger>
 						<SelectContent>
@@ -127,7 +136,6 @@ export function EquipmentFilters() {
 					</Select>
 				</div>
 
-				{/* Button loading */}
 				<EquipmentLoadBtn />
 			</div>
 		</aside>

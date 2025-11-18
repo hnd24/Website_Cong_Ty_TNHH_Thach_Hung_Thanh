@@ -18,6 +18,21 @@ export type EquipmentType = {
 	slug: string;
 };
 
+export type EquipmentSpecificationType = Record<string, string>;
+export type TechDocType = {
+	url: string;
+	name: string;
+};
+
+export type DetailEquipmentType = Omit<EquipmentType, 'image'> & {
+	description: string;
+	specs: EquipmentSpecificationType[];
+	features: string[];
+	applications: string[];
+	techDocs?: TechDocType[];
+	images: string[];
+};
+
 export type PaginationMetaType = {
 	page: number;
 	limit?: number;

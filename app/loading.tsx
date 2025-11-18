@@ -11,7 +11,7 @@ export default function LoadingPage() {
 				src={`/loading.svg`}
 				alt="loading icon"
 				width={300}
-				height={300}
+				height={200}
 				className="rounded-full bg-gray-400"
 			/>
 			<span className="text-3xl font-bold text-center">Đang tải...</span>

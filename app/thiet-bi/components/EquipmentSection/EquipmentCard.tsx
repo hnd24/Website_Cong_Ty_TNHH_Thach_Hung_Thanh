@@ -76,8 +76,11 @@ export function EquipmentCard({equipment}: EquipmentCardProps) {
 								Còn hàng
 							</span>
 						) : (
-							<span className="mt-1 w-fit rounded-xl bg-[#fef9c3] px-2 py-0.5 text-xs font-semibold text-[#854d0e]">
-								Đang thuê
+							// <span className="mt-1 w-fit rounded-xl bg-[#fef9c3] px-2 py-0.5 text-xs font-semibold text-[#854d0e]">
+							// 	Đang thuê
+							// </span>
+							<span className="mt-1 w-fit rounded-xl bg-[#f0cbbe] px-2 py-0.5 text-xs font-semibold text-[#941d12]">
+								Hết hàng
 							</span>
 						)}
 					</div>

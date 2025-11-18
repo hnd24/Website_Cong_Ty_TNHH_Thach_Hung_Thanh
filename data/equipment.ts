@@ -1,16 +1,6 @@
 import {delay} from '@/lib/utils';
-import {EquipmentType, PaginationMetaType, ProjectType} from '@/types';
-import {equipmentData, outstandingEquipmentData, projectData} from './temp';
-
-export const getProjects = async (): Promise<ProjectType[]> => {
-	await delay(500); // Simulate network delay
-	return projectData;
-};
-
-export const getOutstandingEquipments = async (): Promise<EquipmentType[]> => {
-	await delay(500); // Simulate network delay
-	return outstandingEquipmentData;
-};
+import {DetailEquipmentType, EquipmentType, PaginationMetaType} from '@/types';
+import {detailEquipmentData1, equipmentData} from './temp';
 
 export type GetEquipmentsProps = {
 	typeEquipment: string;
@@ -75,4 +65,9 @@ export const getEquipments = async (
 			totalPages,
 		},
 	};
+};
+
+export const getEquipmentBySlug = async (slug: string): Promise<DetailEquipmentType | null> => {
+	await delay(500);
+	return detailEquipmentData1;
 };

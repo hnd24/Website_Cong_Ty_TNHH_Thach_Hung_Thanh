@@ -9,13 +9,23 @@ import {
 } from '@/components/ui/dialog';
 import {ADDRESS, EMAIL_ADDRESS, PHONE_NUMBER} from '@/constants';
 import {Mail, MapPin, Phone} from 'lucide-react';
+import {ClassNameValue} from 'tailwind-merge';
 
-export default function ContactDialog() {
+type Props = {
+	icon?: React.ComponentType<any>;
+	label?: string;
+	className?: ClassNameValue;
+};
+
+export default function ContactDialog({icon: Icon, label = 'Thông tin liên hệ', className}: Props) {
 	return (
 		<Dialog>
 			<DialogTrigger asChild>
-				<Button variant="primary" className="hidden md:flex" size="lg">
-					<span className="truncate flex items-center gap-2">Thông tin liên hệ</span>
+				<Button variant="primary" className={`hidden md:flex ${className}`} size="lg">
+					<span className="truncate flex items-center gap-2">
+						{Icon && <Icon />}
+						{label}
+					</span>
 				</Button>
 			</DialogTrigger>
 

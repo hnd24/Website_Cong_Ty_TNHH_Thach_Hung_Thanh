@@ -1,7 +1,7 @@
 import {EquipmentCard} from '@/app/thiet-bi/components/EquipmentSection/EquipmentCard';
 import {Button} from '@/components/ui/button';
 import {ACHIEVEMENTS} from '@/constants';
-import {getOutstandingEquipments} from '@/data';
+import {getOutstandingEquipments} from '@/data/project';
 import Link from 'next/link';
 
 export default async function EquipmentSection() {

@@ -1,7 +1,7 @@
 // components/ui/ProjectsSection.tsx
 
 import {ACHIEVEMENTS} from '@/constants';
-import {getProjects} from '@/data';
+import {getProjects} from '@/data/project';
 import ProjectsGrid from './ProjectsGrid';
 
 export default async function ProjectsSection() {

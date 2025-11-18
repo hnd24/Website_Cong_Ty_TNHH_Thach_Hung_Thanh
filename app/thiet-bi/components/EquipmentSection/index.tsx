@@ -1,16 +1,41 @@
 'use client';
-import {useEquipmentRes} from '@/hooks/use-equipment';
+import {getEquipments} from '@/data/equipment';
 import {useIsLoad} from '@/hooks/use-params';
+import {useEquipmentListStore} from '@/stores/equipment-store';
+import {useEffect, useState} from 'react';
 import {EquipmentCard} from './EquipmentCard';
 import {EquipmentPagination} from './Pagination';
 import SkeletonEquipmentGrid from './Skeleton';
 
 export default function EquipmentGrid() {
-	const equipments = useEquipmentRes(state => state.equipments);
-	const meta = useEquipmentRes(state => {
+	const [isFirst, setIsFirst] = useState(true);
+	const {isLoad, setIsLoad} = useIsLoad();
+	const storeDataFn = useEquipmentListStore(state => state.updateEquipmentsData);
+	const equipments = useEquipmentListStore(state => state.equipments);
+	const meta = useEquipmentListStore(state => {
 		return state.meta;
 	});
-	const {isLoad} = useIsLoad();
+
+	useEffect(() => {
+		async function handleData() {
+			setIsLoad(true);
+			const data = await getEquipments({
+				meta: {
+					page: 1,
+					limit: 6,
+				},
+			});
+			storeDataFn(data);
+			setIsLoad(false);
+		}
+		if (isFirst) {
+			handleData();
+		}
+		return () => {
+			setIsFirst(false);
+		};
+	}, [isFirst]);
+
 	if (isLoad) {
 		return <SkeletonEquipmentGrid />;
 	}

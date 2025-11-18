@@ -1,4 +1,4 @@
-import {EquipmentType, ProjectType} from '@/types';
+import {DetailEquipmentType, EquipmentType, ProjectType} from '@/types';
 
 export const projectData: ProjectType[] = [
 	{
@@ -187,4 +187,150 @@ export const equipmentData: EquipmentType[] = [
 		slug: 'may-xuc-lat-komatsu-wa470-8',
 		type: 'Máy xúc lật',
 	},
+	{
+		id: 'equipment9',
+		name: 'Máy Xúc Lật Caterpillar 950GC',
+		price: 4200,
+		status: 'Còn hàng',
+		image: '/images/equipments/equipment9.webp',
+		brand: 'Caterpillar',
+		slug: 'may-xuc-lat-caterpillar-950gc',
+		type: 'Máy xúc lật',
+	},
+	{
+		id: 'equipment10',
+		name: 'Máy Xúc Lật Volvo L120H',
+		price: 3800,
+		status: 'Đã cho thuê',
+		image: '/images/equipments/equipment10.webp',
+		brand: 'Volvo',
+		slug: 'may-xuc-lat-volvo-l120h',
+		type: 'Máy xúc lật',
+	},
+	{
+		id: 'equipment11',
+		name: 'Máy Xúc Lật Komatsu WA380-6',
+		price: 4600,
+		status: 'Còn hàng',
+		image: '/images/equipments/equipment11.webp',
+		brand: 'Komatsu',
+		slug: 'may-xuc-lat-komatsu-wa380-6',
+		type: 'Máy xúc lật',
+	},
+	{
+		id: 'equipment12',
+		name: 'Máy Xúc Lật JCB 436HT',
+		price: 3400,
+		status: 'Bảo trì',
+		image: '/images/equipments/equipment12.webp',
+		brand: 'JCB',
+		slug: 'may-xuc-lat-jcb-436ht',
+		type: 'Máy xúc lật',
+	},
 ];
+
+export const detailEquipmentData1: DetailEquipmentType = {
+	id: 'equipment3',
+	name: 'Máy Xúc Lật Caterpillar 950GC',
+	price: 4200,
+	status: 'Còn hàng',
+	brand: 'Caterpillar',
+	slug: 'may-xuc-lat-caterpillar-950gc',
+	type: 'Máy xúc lật',
+	images: [
+		'/images/equipments/equipment1.png',
+		'/images/equipments/equipment2.png',
+		'/images/equipments/equipment3.png',
+		'/images/equipments/equipment4.png',
+	],
+	description: 'Xe lu Volvo SD160D là dòng xe lu rung bánh thép hiệu suất cao.',
+	specs: [
+		{'Trọng lượng vận hành': '16,000 kg'},
+		{'Chiều rộng làm việc': '2130 mm'},
+		{'Tần số rung': '28-35 Hz'},
+		{'Động cơ': 'Volvo D4'},
+		{'Công suất động cơ': '129 kW (173 HP)'},
+		{'Dung tích thùng nhiên liệu': '200 lít'},
+		{'Tốc độ di chuyển tối đa': '10 km/h'},
+		{'Độ sâu làm việc tối đa': '300 mm'},
+	],
+
+	features: [
+		'Động cơ mạnh mẽ, tiết kiệm nhiên liệu và thân thiện với môi trường.',
+		'Hệ thống rung tiên tiến giúp tăng cường hiệu quả đầm nén.',
+		'Cabin thoải mái với hệ thống điều hòa không khí và giảm tiếng ồn.',
+		'Hệ thống lái linh hoạt, dễ dàng vận hành trên nhiều địa hình khác nhau.',
+	],
+	applications: [
+		'Đầm nén đất cho nền móng công trình xây dựng.',
+		'Chuẩn bị bề mặt đường cho các dự án giao thông.',
+		'Đầm nén vật liệu xây dựng như cát, sỏi và đá dăm.',
+		'Các công việc đòi hỏi hiệu suất cao và độ tin cậy trong xây dựng.',
+	],
+	techDocs: [
+		{
+			url: '/docs/volvo-sd160d-manual.pdf',
+			name: 'Hướng dẫn sử dụng Volvo SD160D',
+		},
+		{
+			url: '/docs/volvo-sd160d-specifications.pdf',
+			name: 'Thông số kỹ thuật Volvo SD160D',
+		},
+	],
+};
+
+export const detailEquipmentData2: DetailEquipmentType = {
+	id: 'equipment2',
+	name: 'Cần Cẩu Hitachi ZX200-6',
+	price: 4500,
+	status: 'Đã cho thuê',
+	brand: 'Hitachi',
+	slug: 'can-cau-hitachi-zx200-6',
+	type: 'Cần cẩu',
+	images: [
+		'/images/equipments/equipment2.png',
+		'/images/equipments/equipment5.png',
+		'/images/equipments/equipment9.webp',
+		'/images/equipments/equipment10.webp',
+	],
+	description:
+		'Cần Cẩu Hitachi ZX200-6 là dòng cần cẩu bánh xích đa năng, được thiết kế để đáp ứng các yêu cầu khắt khe trong các công việc nâng hạ và di chuyển vật liệu nặng.',
+	specs: [
+		{'Sức nâng tối đa': '20 tấn'},
+		{'Tầm với tối đa': '10 mét'},
+		{
+			'Trọng lượng vận hành': '21,000 kg',
+		},
+		{
+			'Động cơ': 'Isuzu 4HK1X',
+		},
+		{
+			'Công suất động cơ': '129 kW (173 HP)',
+		},
+		{
+			'Chiều dài cần cẩu': '9.0 mét',
+		},
+	],
+	features: [
+		'Hệ thống thủy lực tiên tiến giúp vận hành mượt mà và chính xác.',
+		'Cabin điều khiển rộng rãi, thoải mái với hệ thống điều hòa không khí.',
+		'Khung gầm chắc chắn, đảm bảo độ ổn định trong quá trình làm việc.',
+		'Thiết kế thân thiện với người dùng, dễ dàng vận hành và bảo trì.',
+	],
+	applications: [
+		'Nâng hạ và di chuyển vật liệu nặng trong các công trình xây dựng.',
+		'Lắp đặt thiết bị và cấu kiện trong các dự án công nghiệp.',
+		'Xây dựng hạ tầng giao thông và cầu đường.',
+		'Các công việc đòi hỏi hiệu suất cao và độ tin cậy trong nâng hạ vật liệu.',
+	],
+	techDocs: [
+		{
+			url: '/docs/hitachi-zx200-6-manual.pdf',
+			name: 'Hướng dẫn sử dụng Hitachi ZX200-6',
+		},
+		{
+			url: '/docs/hitachi-zx200-6-specifications.pdf',
+			name: 'Thông số kỹ thuật Hitachi ZX200-6',
+		},
+	],
+};

@@ -1,7 +1,9 @@
 import {ADDRESS, EMAIL_ADDRESS, PHONE_NUMBER} from '@/constants';
+import {Suspense} from 'react';
 import ContactDialog from './ContactDialog';
 import {Logo} from './Logo';
 import {Navigator} from './navigator';
+import {NavigatorSkeleton} from './navigator/Skeleton';
 
 const localBusinessJsonLd = {
 	'@context': 'https://schema.org',
@@ -25,7 +27,9 @@ export function Header() {
 			<div className="mx-auto flex h-full max-w-7xl items-center justify-between px-4 lg:px-8">
 				<Logo />
 				<div className="flex gap-6">
-					<Navigator />
+					<Suspense fallback={<NavigatorSkeleton />}>
+						<Navigator />
+					</Suspense>
 					<ContactDialog />
 				</div>
 			</div>
