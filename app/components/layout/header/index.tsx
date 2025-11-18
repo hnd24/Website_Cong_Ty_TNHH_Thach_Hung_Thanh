@@ -1,4 +1,4 @@
-import {ADDRESS, DESCRIPTION, EMAIL_ADDRESS, PHONE_NUMBER} from '@/constants';
+import {ADDRESS, EMAIL_ADDRESS, PHONE_NUMBER} from '@/constants';
 import ContactDialog from './ContactDialog';
 import {Logo} from './Logo';
 import {Navigator} from './navigator';
@@ -11,7 +11,7 @@ const localBusinessJsonLd = {
 	telephone: PHONE_NUMBER,
 	email: EMAIL_ADDRESS,
 	areaServed: 'Long An, Tiền Giang, TP.HCM',
-	description: DESCRIPTION,
+	description: 'Thi công nền móng & cho thuê thiết bị xây dựng uy tín, thiết bị sẵn kho 24/7.',
 };
 
 export function Header() {

@@ -3,27 +3,27 @@ import {create} from 'zustand';
 
 export type EquipmentTypeData = {
 	equipments: EquipmentType[];
-} & PaginationMetaType;
+	meta: PaginationMetaType;
+};
 
 export type CounterActions = {
 	updateEquipmentsData: (data: EquipmentTypeData) => void;
 	addEquipments: (data: EquipmentType[]) => void;
 	removeEquipments: (ids: string[]) => void;
-	updateTotal: (total: number) => void;
-	updatePage: (page: number) => void;
+	updateMeta: (meta: PaginationMetaType) => void;
 };
 
 export type EquipmentState = EquipmentTypeData & CounterActions;
 
-export const useEquipment = create<EquipmentState>(set => ({
+export const useEquipmentRes = create<EquipmentState>(set => ({
 	equipments: [],
-	total: 0,
-	page: 1,
+	meta: {
+		total: 0,
+		page: 1,
+	},
 	updateEquipmentsData: (data: EquipmentTypeData) =>
 		set(() => ({
 			equipments: data.equipments,
-			total: data.total,
-			page: data.page,
 		})),
 	addEquipments: (data: EquipmentType[]) =>
 		set(state => ({
@@ -33,12 +33,8 @@ export const useEquipment = create<EquipmentState>(set => ({
 		set(state => ({
 			equipments: state.equipments.filter(equipment => !ids.includes(equipment.id)),
 		})),
-	updateTotal: (total: number) =>
+	updateMeta: (meta: PaginationMetaType) =>
 		set(() => ({
-			total,
-		})),
-	updatePage: (page: number) =>
-		set(() => ({
-			page,
+			meta,
 		})),
 }));

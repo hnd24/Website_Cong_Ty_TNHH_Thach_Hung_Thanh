@@ -1,5 +1,7 @@
-import {StatusEquipment, TrademarkEquipment, TypeEquipment} from '@/constants/enum';
+import {MAX_PRICE, MIN_PRICE} from '@/constants';
+import {BrandEquipmentEnum, StatusEquipmentEnum, TypeEquipmentEnum} from '@/constants/enum';
 import {
+	parseAsArrayOf,
 	parseAsBoolean,
 	parseAsInteger,
 	parseAsStringEnum,
@@ -7,23 +9,24 @@ import {
 	useQueryStates,
 } from 'nuqs';
 
-export const useParams = () => {
-	const [params, setParams] = useQueryStates({
-		typeEquipment: parseAsStringEnum<TypeEquipment>(Object.values(TypeEquipment)).withDefault(
-			TypeEquipment.All,
-		),
-		statusEquipment: parseAsStringEnum<StatusEquipment>(
-			Object.values(StatusEquipment),
-		).withDefault(StatusEquipment.All),
-		trademarkEquipment: parseAsStringEnum<TrademarkEquipment>(
-			Object.values(TrademarkEquipment),
-		).withDefault(TrademarkEquipment.All),
-		rent: parseAsInteger.withDefault(100),
+export const useSearchParams = () => {
+	const [searchParams, setSearchParams] = useQueryStates({
+		typeEquipment: parseAsStringEnum<TypeEquipmentEnum>(
+			Object.values(TypeEquipmentEnum),
+		).withDefault(TypeEquipmentEnum.All),
+		statusEquipment: parseAsStringEnum<StatusEquipmentEnum>(
+			Object.values(StatusEquipmentEnum),
+		).withDefault(StatusEquipmentEnum.All),
+		brandEquipment: parseAsStringEnum<BrandEquipmentEnum>(
+			Object.values(BrandEquipmentEnum),
+		).withDefault(BrandEquipmentEnum.All),
+		priceRange: parseAsArrayOf(parseAsInteger).withDefault([MIN_PRICE, MAX_PRICE]),
+		page: parseAsInteger.withDefault(1),
 	});
 
 	return {
-		params,
-		setParams,
+		searchParams,
+		setSearchParams,
 	};
 };
 

@@ -1,9 +1,7 @@
+import {EquipmentCard} from '@/app/thiet-bi/components/EquipmentSection/EquipmentCard';
 import {Button} from '@/components/ui/button';
-import {Card, CardContent} from '@/components/ui/card';
 import {ACHIEVEMENTS} from '@/constants';
 import {getOutstandingEquipments} from '@/data';
-import {formatMoney} from '@/lib/utils';
-import Image from 'next/image';
 import Link from 'next/link';
 
 export default async function EquipmentSection() {
@@ -44,81 +42,7 @@ export default async function EquipmentSection() {
 				{/* Grid thiết bị */}
 				<div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
 					{displayedEquipments.map(item => (
-						<article
-							key={item.id}
-							className="h-full"
-							itemScope
-							itemType="https://schema.org/Product">
-							<Card className="p-0 flex h-full flex-col overflow-hidden border border-border bg-background shadow-sm transition-shadow hover:shadow-md">
-								{/* Hình */}
-								<div className="relative aspect-[4/3] bg-muted">
-									<Image
-										width={512}
-										height={512}
-										src={item.image}
-										alt={`Thiết bị ${item.name} – ${
-											item.status === 'available' ? 'còn hàng' : 'đang thuê'
-										}`}
-										className="object-cover"
-										itemProp="image"
-									/>
-								</div>
-
-								{/* Nội dung */}
-								<CardContent className="flex flex-1 flex-col gap-3 p-4">
-									<h3
-										className="text-lg font-semibold text-foreground"
-										itemProp="name">
-										{item.name}
-									</h3>
-
-									{/* Giá & badge */}
-									<div>
-										<p
-											className="text-lg font-bold text-blue-500"
-											itemProp="offers"
-											itemScope
-											itemType="https://schema.org/Offer">
-											<span itemProp="price">
-												{formatMoney(item.pricePerDay, {
-													multiplyByThousand: true,
-												})}
-											</span>{' '}
-											<span itemProp="priceCurrency">VND</span> /ngày
-										</p>
-
-										<link
-											itemProp="availability"
-											href={
-												item.status === 'available'
-													? 'https://schema.org/InStock'
-													: 'https://schema.org/OutOfStock'
-											}
-										/>
-
-										{item.status === 'available' ? (
-											<span className="mt-1 w-fit rounded-xl bg-[#dcfce7] px-2 py-0.5 text-xs font-semibold text-[#166534]">
-												Còn hàng
-											</span>
-										) : (
-											<span className="mt-1 w-fit rounded-xl bg-[#fef9c3] px-2 py-0.5 text-xs font-semibold text-[#854d0e]">
-												Đang thuê
-											</span>
-										)}
-									</div>
-
-									{/* Button xem chi tiết */}
-									<Button asChild variant="outline" className="mt-auto">
-										<Link
-											href={`/thiet-bi/${item.id}`}
-											itemProp="url"
-											aria-label={`Xem chi tiết thiết bị ${item.name}`}>
-											Xem chi tiết thiết bị
-										</Link>
-									</Button>
-								</CardContent>
-							</Card>
-						</article>
+						<EquipmentCard key={item.slug} equipment={item} />
 					))}
 				</div>
 

@@ -20,8 +20,6 @@ export const ADDRESS = {
 	string: '119 & 121 Đường 278, Phường 7, Thành phố Tân An, Tỉnh Long An, Việt Nam',
 	url: '',
 };
-export const DESCRIPTION =
-	'Thi công nền móng & cho thuê thiết bị xây dựng uy tín, thiết bị sẵn kho 24/7.';
 
 type SocialMedia = {
 	[key: string]: {
@@ -41,6 +39,10 @@ export const NUMBER_PROJECTS_COMPLETED: number = 300;
 export const YEARS_OF_EXPERIENCE: number = 10;
 export const NUMBER_OF_DEVICES: number = 200;
 export const NUMBER_CLIENTS: number = 500;
+
+export const MAX_PRICE: number = 1_500_000;
+export const MIN_PRICE: number = 0;
+export const STEP_PRICE: number = 50;
 
 type AchievementType = {
 	[key: string]: {

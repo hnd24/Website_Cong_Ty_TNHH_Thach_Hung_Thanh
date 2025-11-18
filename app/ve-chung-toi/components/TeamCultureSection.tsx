@@ -1,6 +1,6 @@
+import {Avatar, AvatarFallback, AvatarImage} from '@/components/ui/avatar';
 import {Badge} from '@/components/ui/badge';
 import {Card} from '@/components/ui/card';
-import Image from 'next/image';
 import {TEAM_MEMBERS} from '../constants';
 
 export function TeamCultureSection() {
@@ -35,14 +35,22 @@ export function TeamCultureSection() {
 							itemType="https://schema.org/Person"
 							key={member.name}
 							className="p-6 flex flex-col sm:flex-row items-center sm:items-start gap-6 hover:shadow-lg hover:border-primary-blue/50 transition-all duration-300 bg-card/50 hover:bg-card">
-							<Image
-								alt={`Portait của ${member.name}`}
-								className="w-20 h-20 rounded-full object-cover flex-shrink-0 ring-2 ring-primary-blue/20"
-								src={member.image || '/placeholder.svg'}
-								width={80}
-								height={80}
-								itemProp="image"
-							/>
+							<Avatar className="w-20 h-20 flex-shrink-0 ">
+								<AvatarImage
+									src={member.image || '/placeholder.svg'}
+									alt={`Portrait của ${member.name}`}
+									itemProp="image"
+								/>
+								<AvatarFallback>
+									{member.name
+										.split(' ')
+										.map(n => n[0])
+										.slice(-2)
+										.join('')
+										.toUpperCase()}
+								</AvatarFallback>
+							</Avatar>
+
 							<div className="flex-1">
 								<h3 className="font-bold text-lg text-foreground" itemProp="name">
 									{member.name}

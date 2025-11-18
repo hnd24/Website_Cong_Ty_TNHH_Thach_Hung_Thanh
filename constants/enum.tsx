@@ -1,21 +1,22 @@
-export enum TypeEquipment {
+export enum TypeEquipmentEnum {
 	All = 'Tất cả',
-	Excavator = 'Máy xúc',
-	Bulldozer = 'Máy ủi',
 	Loader = 'Máy xúc lật',
 	Crane = 'Cần cẩu',
-	DumpTruck = 'Xe ben',
-	ConcreteMixer = 'Xe trộn bê tông',
+	Roller = 'Xe lu',
+	Compactor = 'Đầm cóc',
+	Pump = 'Máy bơm',
+	Excavator = 'Máy xúc đào',
+	Bulldozer = 'Máy ủi',
 }
 
-export enum StatusEquipment {
+export enum StatusEquipmentEnum {
 	All = 'Tất cả',
 	Available = 'Còn hàng',
 	Rented = 'Đã cho thuê',
 	Maintenance = 'Bảo trì',
 }
 
-export enum TrademarkEquipment {
+export enum BrandEquipmentEnum {
 	All = 'Tất cả',
 	Komatsu = 'Komatsu',
 	Caterpillar = 'Caterpillar',
