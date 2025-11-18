@@ -31,7 +31,7 @@ export function AchievementsSection() {
 								<dt className="sr-only">{item.label}</dt>
 								<dd>
 									<p className="text-4xl font-black text-primary-blue lg:text-5xl">
-										{item.value}
+										{item.value}+
 									</p>
 									<p className="mt-1 text-sm font-medium text-[#111418] dark:text-gray-300">
 										{item.label}
